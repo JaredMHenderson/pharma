@@ -8,8 +8,6 @@ const app = express();
 
 const exphbs = require("express-handlebars");
 
-app.use(express.static("public"));
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -19,7 +17,7 @@ app.set("view engine", "handlebars");
 
 // require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
-
+app.use(express.static("public"));
 
  app.listen(port, function() {
    console.log("App listening on port " + port);
