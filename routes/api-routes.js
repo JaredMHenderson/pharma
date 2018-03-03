@@ -29,8 +29,8 @@ module.exports = function(app) {
         console.log(req.body);
         db.User.create({
             name: req.body.name,
-            age: req.body.age,
-            dosage: req.body.dosage
+            DOB: req.body.DOB,
+            prescriptions: req.body.prescriptions
         })
         .then(function(dbUser) {
             res.json(dbUser);
