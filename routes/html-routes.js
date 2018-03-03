@@ -18,18 +18,12 @@ module.exports = function(app) {
     res.render("home");
   });
 
-<<<<<<< HEAD
-  app.get("/api/users", function(req, res) {
-    console.log(res);
-    res.render("home");
-  });
-
-=======
-
   app.get("/newPatientForm", function(req, res) {
     res.render("newPatientForm");
   });
 
+  app.get("/prescription", function(req, res) {
+    res.render("prescription");
+  });
 
->>>>>>> 299b42eed3ebebc188b882b6affd5ea49e634be3
 };
