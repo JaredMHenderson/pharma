@@ -2,14 +2,28 @@ $(document).ready(function() {
 
 let patients;
 
-function getPatients() {
-	$.get("/api/users", function(data) {
-		console.log("Patient", data);
-		patients = data;
-	})
-}
+// function getPatients() 
+// {
 
-getPatients();
+// 	$.get("/api/users", function(data) 
+
+// 	{
+// 		console.log("Patients: ", data);
+// 		patients = data;
+// 		 $(".patients").empty();
+
+//     	let patientToAdd = [];
+
+//     	for (var i = 0; i < patients.length; i++) 
+//     	{
+//     	 	patientToAdd.push(patients[i]);
+//       		$(".patients").append(patientToAdd);
+//     	}
+//   	}
+		
+// }
+
+// getPatients();
 
 
 
