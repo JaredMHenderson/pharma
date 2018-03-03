@@ -18,9 +18,12 @@ module.exports = function(app) {
     res.render("home");
   });
 
-
   app.get("/newPatientForm", function(req, res) {
     res.render("newPatientForm");
+  });
+
+  app.get("/prescription", function(req, res) {
+    res.render("prescription");
   });
 
 

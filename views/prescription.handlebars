@@ -10,7 +10,7 @@
 
   <link href="./style.css" type="text/css" rel="stylesheet">
 
-  <title>quick clinic || New Patient Form</title>
+  <title>quick clinic || New Prescription Form</title>
 
 </head>
 <body>
@@ -18,31 +18,30 @@
 
 <div class="container">
   <div class="row">
-    <h1 class="headline">New Patient</h1>
+    <h1 class="headline">New Prescription</h1>
   </div>
   <div class="row">
     <div class="col-lg-8">
       <form>
         <div class="form-group">
-          <label for="patientName" class="subHead">Name:</label>
-          <input type="text" class="form-control" id="patientName" placeholder="Name">
+          <label for="rxName" class="subHead">Drug:</label>
+          <input type="text" class="form-control" id="rxName" placeholder="Name">
         </div>
         <div class="form-group">
-          <label for="patientAge" class="subHead">Date of Birth:</label>
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="MM">
-              <input type="text" class="form-control" placeholder="DD">
-              <input type="text" class="form-control" placeholder="YYYY">
-            </div>
-          </div>
+          <label for="rxCatagory" class="subHead">Drug Catagory:</label>
+          <input type="text" class="form-control" id="rxCatagory" placeholder="Catagory">
+        </div>
+        <div class="form-group">
+          <label for="rxQuantity" class="subHead">Drug Quantity:</label>
+          <input type="number" class="form-control" id="rxQuantity" placeholder="Quantity">
+        </div>
           <div class="form-group">
             <label for="patientComments" class="subHead">Additional Comments:</label>
               <div class="input-group">
                 <textarea class="form-control" aria-label="With textarea"></textarea>
               </div>
           </div>
-            <a class="btn btn-outline-dark btn-lg" href="home" role="button">Submit Patient</a>
-            <a class="btn btn-outline-dark btn-lg" href="prescription" role="button">Submit + Prescription</a>
+            <a class="btn btn-outline-dark btn-lg" href="home" role="button">Submit Prescription</a>
       </form>
     </div>
 
