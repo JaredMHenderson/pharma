@@ -22,8 +22,13 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
+<<<<<<< HEAD
     "mysql": "^2.15.0",
+=======
+    "moment": "^2.20.1",
+>>>>>>> 8e76ae0cd459e3c27f15a3317fd5d489f3377715
     "mysql2": "^1.5.2",
+    "passport": "^0.4.0",
     "sequelize": "^4.34.0"
   }
 }
