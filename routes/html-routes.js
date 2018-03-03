@@ -18,4 +18,9 @@ module.exports = function(app) {
     res.render("home");
   });
 
+  app.get("/api/users", function(req, res) {
+    console.log(res);
+    res.render("home");
+  });
+
 };
