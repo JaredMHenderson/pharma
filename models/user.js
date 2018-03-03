@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     prescriptions: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true 
     },
 
     age: {
