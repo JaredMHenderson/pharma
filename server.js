@@ -11,13 +11,12 @@ const exphbs = require("express-handlebars");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
-
+app.use(express.static("public"));
 
 app.use(express.static("public"));
 

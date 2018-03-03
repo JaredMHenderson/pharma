@@ -14,7 +14,7 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
+    "username": "root"
     "password": "tWister@710",
     "database": "database_production",
     "host": "127.0.0.1",
