@@ -13,15 +13,36 @@
 	</div>
 		<hr>
 	<div class="row">
-		<h3 class="subHead" onclick="test()">Recent Patients</h3>
-	</div>
-  <script>
-    function test(){
-      patients.getPatients(function(userJson){
-        alert(userJson);
-      });
-    }
-  </script>
+		<h3 class="subHead">Recent Patients</h3>
+    </div>
+	
+
+
+<div class="row">
+
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">DOB</th>
+      <th scope="col">Prescription</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      {{#each patients}}
+    <tr>
+      <th scope="row">{{this.name}}</th>
+      <td>{{this.DOB}}</td>
+      <td>{{this.prescriptions}}</td>
+    </tr>
+    {{/each}}
+   
+  </tbody>
+</table>
+ 
+</div>
+</div>
 
 
 
