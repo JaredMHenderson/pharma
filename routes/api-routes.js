@@ -5,7 +5,7 @@ const db = require('../models');
 module.exports = function(app) {
     //Get route to get all users
 
-    app.get('api/patients', function(req, res) {
+    app.get('/api/patients', function(req, res) {
         db.Patient.findAll({})
         .then(function(dbPatient) {
             res.json(dbPatient);
