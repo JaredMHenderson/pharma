@@ -24,7 +24,7 @@ module.exports = function(app) {
         });
     });
 
-    //Post Route For adding a new User
+    //Post Route For adding a new Patient
     app.post('/api/patients', function(req, res) {
         console.log(req.body);
         db.Patient.create({
@@ -60,5 +60,20 @@ module.exports = function(app) {
         .then(function(dbPatient) {
             res.json(dbPatient);
         });
+    });
+
+
+    //Post route for adding new prescription
+
+    app.post('/api/prescriptions', function (req, res) {
+        console.log(req.body);
+        db.Prescription.create({
+            name: req.body.name,
+            category: req.body.category,
+            stock: req.body.stock
+        })
+            .then(function (dbPatient) {
+                res.json(dbPatient);
+            });
     });
 }
