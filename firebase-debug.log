@@ -1,0 +1,46 @@
+[debug] [2018-03-06T03:52:23.384Z] ----------------------------------------------------------------------
+[debug] [2018-03-06T03:52:23.386Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2018-03-06T03:52:23.386Z] CLI Version:   3.17.4
+[debug] [2018-03-06T03:52:23.386Z] Platform:      darwin
+[debug] [2018-03-06T03:52:23.386Z] Node Version:  v9.4.0
+[debug] [2018-03-06T03:52:23.387Z] Time:          Mon Mar 05 2018 20:52:23 GMT-0700 (MST)
+[debug] [2018-03-06T03:52:23.387Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-06T03:52:23.398Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-06T03:52:23.398Z] > authorizing via signed-in user
+[debug] [2018-03-06T03:52:23.400Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-03-06T03:52:23.400Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/ui6cVhFKcCpqDxihDTiv2YZxfMYdkKrtkwof7vlkVjbKLhwUdeSq4n8O_ogr94w1',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Mon Mar 05 2018 20:52:23 GMT-0700 (MST)
+[debug] [2018-03-06T03:52:23.502Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-06T03:52:23.515Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/pharmacy-60892  
+  
+ Mon Mar 05 2018 20:52:23 GMT-0700 (MST)
+[debug] [2018-03-06T03:52:23.750Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-06T03:52:23.751Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/pharmacy-60892/tokens  
+  
+ Mon Mar 05 2018 20:52:23 GMT-0700 (MST)
+[debug] [2018-03-06T03:52:24.034Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/larisaanderson/DU/homework/pharma'...
+[info] 
+[debug] [2018-03-06T03:52:24.037Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/pharmacy-60892  
+  
+ Mon Mar 05 2018 20:52:24 GMT-0700 (MST)
+[debug] [2018-03-06T03:52:24.262Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-06T03:52:24.262Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/276089507868/clients/_:getWebAppConfig  
+  
+ Mon Mar 05 2018 20:52:24 GMT-0700 (MST)
+[debug] [2018-03-06T03:52:24.541Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-06T03:52:24.562Z] TypeError: Cannot read property 'public' of undefined
+    at Server.<anonymous> (/usr/local/lib/node_modules/firebase-tools/lib/serve/hosting.js:34:18)
+    at Object.onceWrapper (events.js:255:19)
+    at Server.emit (events.js:160:13)
+    at emitListeningNT (net.js:1393:10)
+    at process._tickCallback (internal/process/next_tick.js:152:19)
+[error] 
+[error] Error: An unexpected error has occurred.
