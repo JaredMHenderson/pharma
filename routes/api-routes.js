@@ -5,7 +5,7 @@ const db = require('../models');
 module.exports = function(app) {
     //Get route to get all users
 
-    app.get('api/users/', function(req, res) {
+    app.get('api/patients', function(req, res) {
         db.User.findAll({})
         .then(function(dbUser) {
             res.json(dbUser);
@@ -25,7 +25,7 @@ module.exports = function(app) {
     });
 
     //Post Route For adding a new User
-    app.post('/api/users', function(req, res) {
+    app.post('/api/patients', function(req, res) {
         console.log(req.body);
         db.User.create({
             name: req.body.name,
