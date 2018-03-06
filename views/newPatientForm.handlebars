@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-
-  <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700" rel="stylesheet">
-
-  <link href="./style.css" type="text/css" rel="stylesheet">
-
-  <title>quick clinic || New Patient Form</title>
-
-</head>
-<body>
 
 
 <div class="container">
@@ -22,7 +7,7 @@
   </div>
   <div class="row">
     <div class="col-lg-8">
-      <form>
+      
         <div class="form-group">
           <label for="patientName" class="subHead">Name:</label>
           <input type="text" class="form-control" id="patientName" placeholder="Name">
@@ -41,14 +26,20 @@
                 <textarea class="form-control" aria-label="With textarea"></textarea>
               </div>
           </div>
-            <a class="btn btn-outline-dark btn-lg" href="home" role="button">Submit Patient</a>
+            <button class="btn btn-outline-dark btn-lg" onclick="createPatient()" href="home" role="button">Submit Patient</button>
             <a class="btn btn-outline-dark btn-lg" href="prescription" role="button">Submit + Prescription</a>
-      </form>
+      
     </div>
+    <script>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+      function createPatient(){
+        var newPatient = {
+          name: $("#patientName").val().trim(),
+          DOB: (new Date()).getTime()
+        }
+        patients.createPatient(function(result){
+          alert(result);
+        }, newPatient);
+      } 
+    </script>
 
-</body>
-</html>
