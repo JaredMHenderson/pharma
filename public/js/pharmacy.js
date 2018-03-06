@@ -23,6 +23,19 @@ var patients = {
 };
 
 
+var prescriptions = {
+  createPrescription: function(callback, newPrescription) {
+    fetch('.api/prescriptions', {
+      method: 'POST',
+      body: JSON.stringify(newPrescription),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    }).then(res => console.error(('Erro:', error))
+    .then(callback);
+  }
+};
+
 
 
 // function getPatients() 
