@@ -1,8 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const app = express();
 
 const port = process.env.port || 3000;
-const app = express();
 
 const db = require("./models");
 
@@ -20,8 +20,8 @@ app.use(express.static("public"));
 
 app.use(express.static("public"));
 
-db.sequelize.sync({ force: false }).then(function() {
-  app.listen(port, function() {
+db.sequelize.sync({ force: false }).then(function () {
+  app.listen(port, function () {
     console.log("App listening on port " + port);
   });
 });
