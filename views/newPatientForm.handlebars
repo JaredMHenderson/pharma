@@ -1,0 +1,45 @@
+
+
+
+<div class="container">
+  <div class="row">
+    <h1 class="headline">New Patient</h1>
+  </div>
+  <div class="row">
+    <div class="col-lg-8">
+      
+        <div class="form-group">
+          <label for="patientName" class="subHead">Name:</label>
+          <input type="text" class="form-control" id="patientName" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <label for="patientAge" class="subHead">Date of Birth:</label>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="MM">
+              <input type="text" class="form-control" placeholder="DD">
+              <input type="text" class="form-control" placeholder="YYYY">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="patientComments" class="subHead">Additional Comments:</label>
+              <div class="input-group">
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+              </div>
+          </div>
+            <button class="btn btn-outline-dark btn-lg" onclick="createPatient()" href="home" role="button">Submit Patient</button>
+            <a class="btn btn-outline-dark btn-lg" href="prescription" role="button">Submit + Prescription</a>
+      
+    </div>
+    <script>
+
+      function createPatient(){
+        var newPatient = {
+          name: $("#patientName").val().trim(),
+          DOB: (new Date()).getTime()
+        }
+        patients.createPatient(function(result){
+          alert(result);
+        }, newPatient);
+      } 
+    </script>
+

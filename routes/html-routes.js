@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const db = require("../models/index.js");
 
 module.exports = function(app) {
 
@@ -11,11 +12,22 @@ module.exports = function(app) {
   });
 
   app.get("/", function(req, res) {
+
     res.render("index");
   });
 
   app.get("/home", function(req, res) {
-    res.render("home");
+             res.render("home");
+        
+   
+  });
+
+  app.get("/newPatientForm", function(req, res) {
+    res.render("newPatientForm");
+  });
+
+  app.get("/prescription", function(req, res) {
+    res.render("prescription");
   });
 
 };
