@@ -6,59 +6,59 @@ module.exports = function(app) {
     //Get route to get all users
 
     app.get('api/patients', function(req, res) {
-        db.User.findAll({})
-        .then(function(dbUser) {
-            res.json(dbUser);
+        db.Patient.findAll({})
+        .then(function(dbPatient) {
+            res.json(dbPatient);
         });
     });
 
     //Get Route for returning info about a specific User
-    app.get('/api/users/name/:name', function(req, res) {
-        db.User.findAll({
+    app.get('/api/patients/name/:name', function(req, res) {
+        db.Patient.findAll({
             where: {
                 name: req.params.name
             }
         })
-        .then(function(dbUser) {
-            res.json(dbUser);
+        .then(function(dbPatient) {
+            res.json(dbPatient);
         });
     });
 
     //Post Route For adding a new User
     app.post('/api/patients', function(req, res) {
         console.log(req.body);
-        db.User.create({
+        db.Patient.create({
             name: req.body.name,
             DOB: req.body.DOB,
             prescriptions: req.body.prescriptions
         })
-        .then(function(dbUser) {
-            res.json(dbUser);
+        .then(function(dbPatient) {
+            res.json(dbPatient);
         });   
     });
 
     //Delete route for deleting users
-    app.delete('/api/users/:name', function(req, res) {
-        db.User.destroy({
+    app.delete('/api/patients/:name', function(req, res) {
+        db.Patient.destroy({
             where:{
                 name: req.params.name
             }
         })
-        .then(function(dbUser) {
-            res.json(dbUser);
+        .then(function(dbPatient) {
+            res.json(dbPatient);
         });
     });
 
     //Put route for updating User info
-    app.put('/api/users', function(req, res) {
-        db.User.update(req.body,
+    app.put('/api/patients', function(req, res) {
+        db.Patient.update(req.body,
         {
             where: {
                 name: req.body.name
             }
         })
-        .then(function(dbUser) {
-            res.json(dbPost);
+        .then(function(dbPatient) {
+            res.json(dbPatient);
         });
     });
 }
