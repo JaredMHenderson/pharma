@@ -1,7 +1,7 @@
 const moment = require('moment');
 
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define("User", {
+  var Patient = sequelize.define("Patient", {
     name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -26,5 +26,5 @@ module.exports = function(sequelize, DataTypes) {
     }
 
   });
-  return User;
+  return Patient;
 };
