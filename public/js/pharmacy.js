@@ -5,8 +5,9 @@ var patients = {
       .then(function(response) {
     return response.json();
     })
-    .then(function(userJson) {
-      callback(userJson);
+    .then(function(patientJson) {
+      console.log(patientJson);
+      callback(patientJson);
     });
   },
   createPatient: function(callback, newPatient) {
@@ -21,6 +22,7 @@ var patients = {
 .then(callback);
   }
 };
+
 
 
 var prescriptions = {
@@ -81,6 +83,7 @@ var prescriptions = {
   //     }
   //   });
   // }
+
 
 
 

@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
-const db = require("../models/index.js");
+const db = require("../models");
+
 
 module.exports = function(app) {
 
@@ -16,9 +17,12 @@ module.exports = function(app) {
     res.render("index");
   });
 
-  app.get("/home", function(req, res) {
-             res.render("home");
-        
+  app.get("/home", function(req, res) 
+  {
+    db.Patient.findAll().then(function(data) 
+    {
+      res.render("home", {patients: data});
+    });
    
   });
 
