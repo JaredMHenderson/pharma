@@ -1,53 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-
-  <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700" rel="stylesheet">
-
-  <link href="./style.css" type="text/css" rel="stylesheet">
-
-  <title>quick clinic || New Prescription Form</title>
-
-</head>
-<body>
-
-
 <div class="container">
   <div class="row">
-    <h1 class="headline">New Prescription</h1>
+    <h1 id="headline">New Prescription</h1>
   </div>
   <div class="row">
     <div class="col-lg-8">
-      <form>
         <div class="form-group">
-          <label for="rxName" class="subHead">Drug:</label>
+          <label for="rxName" id="subHead">Drug:</label>
           <input type="text" class="form-control" id="rxName" placeholder="Name">
         </div>
         <div class="form-group">
-          <label for="rxCatagory" class="subHead">Drug Category:</label>
+          <label for="rxCatagory" id="subHead">Drug Category:</label>
           <input type="text" class="form-control" id="rxCategory" placeholder="Category">
         </div>
         <div class="form-group">
-          <label for="rxQuantity" class="subHead">Drug Quantity:</label>
+          <label for="rxQuantity" id="subHead">Drug Quantity:</label>
           <input type="number" class="form-control" id="rxQuantity" placeholder="Quantity">
         </div>
         <div class="form-group">
-            <label for="pa   ientComments" class="subHead">Additional Comments:</label>
-              <div class="input-group">
-                <textarea class="form-control" aria-label="With textarea"></textarea>
-              </div>
-          </div>
-            <a class="btn btn-outline-dark btn-lg" href="home" role="button">Submit Prescription</a>
-      </form>
+            <label for="paientComments" id="subHead">Additional Comments:</label>
+            <textarea class="form-control" aria-label="With textarea" id="rxComments"></textarea>
+        </div>
     </div>
-
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
-</body>
-</html>
+	</div>
+            <button class="btn btn-info" onclick="location.href='/home'" id="newPrescription">Submit Prescription</button>
+</div>

@@ -12,14 +12,11 @@ module.exports = function(app) {
   });
 
   app.get("/", function(req, res) {
-
     res.render("index");
   });
 
   app.get("/home", function(req, res) {
-             res.render("home");
-        
-   
+    res.render("home");
   });
 
   app.get("/newPatientForm", function(req, res) {
