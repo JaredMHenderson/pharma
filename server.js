@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+// const pharmacy = require('pharmacy.js');
 
 const port = process.env.port || 3000;
 const app = express();
@@ -25,4 +26,3 @@ db.sequelize.sync({ force: false }).then(function() {
     console.log("App listening on port " + port);
   });
 });
-
