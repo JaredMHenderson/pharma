@@ -38,10 +38,10 @@ module.exports = function(app) {
     });
 
     //Delete route for deleting users
-    app.delete('/api/patients/:name', function(req, res) {
+    app.delete('/api/patients/:id', function(req, res) {
         db.Patient.destroy({
             where:{
-                name: req.params.name
+                id: req.params.id
             }
         })
         .then(function(dbPatient) {
