@@ -19,21 +19,29 @@
     </div>
   </div>
 
-    <button class="btn btn-info" onclick="location.href='/home'" id="newPatient">Submit Patient</button>
+    <button class="btn btn-info" onclick="createPatient()" id="newPatient">Submit Patient</button>
     <button class="btn btn-info" onclick="location.href='/prescription'" id="patientPrescript">Submit + Prescription</button>
+
+
 
 </div>
 
 <script>
 
+
+
   function createPatient(){
     var newPatient = {
       name: $("#patientName").val().trim(),
-      DOB: (new Date()).getTime()
+      DOB: $("#patientDOB").val(),
+      comments: $("#patientComments").val()
       }
       patients.createPatient(function(result){
-        alert(result);
+        alert("New patient added");
       }, newPatient);
+      patients.getPatients(function(result) {
+        window.location.href = "/home";
+      })
     };
 
 </script>
