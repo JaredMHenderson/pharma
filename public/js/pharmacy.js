@@ -5,8 +5,9 @@ var patients = {
       .then(function(response) {
     return response.json();
     })
-    .then(function(userJson) {
-      callback(userJson);
+    .then(function(patientJson) {
+      console.log(patientJson);
+      callback(patientJson);
     });
   },
   createPatient: function(callback, newPatient) {
@@ -22,7 +23,26 @@ var patients = {
   }
 };
 
-// function getPatients()
+
+
+
+var prescriptions = {
+  createPrescription: function(callback, newPrescription) {
+    fetch('./api/prescriptions', {
+      method: 'POST',
+      body: JSON.stringify(newPrescription),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    }).catch(res => console.error('Error:', error))
+    .then(callback);
+  }
+};
+
+
+
+// function getPatients() 
+
 // {
 
 // 	$.get("/api/users", function(data)
@@ -65,3 +85,4 @@ var patients = {
   //     }
   //   });
   // }
+
