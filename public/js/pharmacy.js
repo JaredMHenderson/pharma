@@ -13,7 +13,7 @@ var patients = {
   createPatient: function(callback, newPatient) {
     fetch('./api/patients', {
   method: 'POST', // or 'PUT'
-  body: JSON.stringify(newPatient), 
+  body: JSON.stringify(newPatient),
   headers: new Headers({
     'Content-Type': 'application/json'
   })
@@ -22,6 +22,7 @@ var patients = {
 .then(callback);
   }
 };
+
 
 
 
@@ -41,9 +42,10 @@ var prescriptions = {
 
 
 // function getPatients() 
+
 // {
 
-// 	$.get("/api/users", function(data) 
+// 	$.get("/api/users", function(data)
 
 // 	{
 // 		console.log("Patients: ", data);
@@ -52,13 +54,13 @@ var prescriptions = {
 
 //     	let patientToAdd = [];
 
-//     	for (var i = 0; i < patients.length; i++) 
+//     	for (var i = 0; i < patients.length; i++)
 //     	{
 //     	 	patientToAdd.push(patients[i]);
 //       		$(".patients").append(patientToAdd);
 //     	}
 //   	}
-		
+
 // }
 
 // getPatients();
@@ -83,8 +85,4 @@ var prescriptions = {
   //     }
   //   });
   // }
-
-
-
-
 
