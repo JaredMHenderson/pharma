@@ -1,6 +1,11 @@
 <div class="container">
   <div class="row">
-    <h1 id="headline">New Patient</h1>
+    <div class="col-lg-11">
+      <h1 id="headline">New Patient</h1>
+    </div>
+    <div class="col-lg-1">
+      <button class="btn btn-info" id="seconBtn" onclick="location.href='/home'" role="button"><i class="fas fa-home"></i></button>
+    </div>
   </div>
     <hr>
   <div class="row">
@@ -11,7 +16,11 @@
         </div>
         <div class="form-group">
           <label for="patientAge" id="subHead">Date of Birth:</label>
-          <input type="text" class="form-control" id="patientDOB" placeholder="YYYY-MM-DD">
+          <input type="text" class="form-control" id="patientDOB" placeholder="YYYY-MM-DD ">
+        </div>
+        <div class="form-group">
+          <label for="patientComments" id="subHead">Prescriptions:</label>
+          <input type="text" class="form-control" id="patientRx" placeholder="Prescriptions"></textarea>
         </div>
         <div class="form-group">
           <label for="patientComments" id="subHead">Additional Comments:</label>
@@ -21,10 +30,6 @@
   </div>
 
     <button class="btn btn-info" onclick="createPatient()" id="newPatient">Submit Patient</button>
-    <button class="btn btn-info" onclick="location.href='/prescription'" id="patientPrescript">Submit + Prescription</button>
-
-
-
 </div>
 
 <script>
@@ -35,6 +40,7 @@
     var newPatient = {
       name: $("#patientName").val().trim(),
       DOB: $("#patientDOB").val(),
+      prescription: $("#patientRx").val(),
       comments: $("#patientComments").val()
       }
       patients.createPatient(function(result){

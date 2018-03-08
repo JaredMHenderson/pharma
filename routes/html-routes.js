@@ -30,13 +30,6 @@ module.exports = function(app) {
     res.render("newPatientForm");
   });
 
-  app.get("/prescription", function(req, res) {
-    db.Patient.findAll().then(function(data){
-      res.render("prescription", {patients: data});
-    })
-    
-  });
-
   app.get("/updatePatient", function(req, res) {
     res.render("updatePatient");
   });
