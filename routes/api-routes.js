@@ -13,7 +13,7 @@ module.exports = function(app) {
     });
 
     //Get Route for returning info about a specific Patient
-    app.get('/api/patients/:id', function(req, res) {
+     app.get('/api/patients/:id', function(req, res) {
 
         db.Patient.findAll({
             where: {
@@ -53,7 +53,7 @@ module.exports = function(app) {
 
     //Put route for updating Patient info
     app.put('/api/patients/:id', function(req, res) {
-        console.log("THIS IS OUR BODY", req.body);
+        // console.log("THIS IS OUR BODY", req.body);
         db.Patient.update(req.body,
         {
             where: {

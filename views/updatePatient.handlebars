@@ -20,33 +20,31 @@
         </div>
         <div class="form-group">
           <label for="patientComments" id="subHead">Prescriptions:</label>
-          <input type="text" class="form-control" id="patientPrescriptions" placeholder="Prescriptions"></textarea>
+          <input type="text" class="form-control" id="patientPrescriptions" value="{{this.patient.prescription}}" placeholder="Prescriptions"></textarea>
         </div>
         <div class="form-group">
           <label for="patientComments" id="subHead">Additional Comments:</label>
-          <textarea class="form-control" aria-label="With textarea" id="patientComments" value="{{this.patient.comments}}"></textarea>
+          <textarea class="form-control" aria-label="With textarea" id="patientComments" value="{{this.patient.comments}}" placeholder="{{this.patient.comments}}"></textarea>
         </div>
     </div>
   </div>
     <button class="btn btn-info" data={{this.patient.id}} id="updatePatient">Submit Update</button>
 </div>
+
 <script>
-
-
-function updatePatient(){
+$("#updatePatient").on("click", function(){
+  const id = $("#updatePatient").attr("data");
   var patient = {
     name: $("#patientName").val().trim(),
     DOB: $("#patientDOB").val(),
-    prescription: $("#patientRx").val(),
+    prescription: $("#patientPrescriptions").val(),
     comments: $("#patientComments").val()
     }
-    patients.getPatients(function(result) {
-      window.location.href = "/home";
-    })
     patients.updatePatient(function(result){
       alert("Patient information updated");
-    }, newPatient);
-  };
-
+      window.location.href = "/home";
+    }, id, patient);
+    
+  });
 </script>
 
