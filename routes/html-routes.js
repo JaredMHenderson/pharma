@@ -17,18 +17,6 @@ module.exports = function(app) {
   });
 
 
-<<<<<<< HEAD
-=======
-  app.get("/home", function(req, res)
-  {
-    db.Patient.findAll().then(function(data)
-    {
-      res.render("home", {patients: data});
-    });
-
-  });
-
->>>>>>> 2a56a39c1e9b63503b00b99d5001ddc34849b7cc
   app.get("/newPatientForm", function(req, res) {
     res.render("newPatientForm");
   });
@@ -36,12 +24,5 @@ module.exports = function(app) {
   app.get("/prescription", function(req, res) {
     res.render("prescription");
   });
-<<<<<<< HEAD
-=======
-
-  app.get("/updatePatient", function(req, res) {
-    res.render("updatePatient");
-  });
->>>>>>> 2a56a39c1e9b63503b00b99d5001ddc34849b7cc
 
 };

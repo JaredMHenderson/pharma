@@ -1,10 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-<<<<<<< HEAD
 const app = express();
-=======
-// const pharmacy = require('pharmacy.js');
->>>>>>> 2a56a39c1e9b63503b00b99d5001ddc34849b7cc
 
 const port = process.env.port || 3000;
 
@@ -29,3 +25,4 @@ db.sequelize.sync({ force: false }).then(function () {
     console.log("App listening on port " + port);
   });
 });
+  
