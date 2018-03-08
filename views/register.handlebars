@@ -45,14 +45,15 @@
           <div class="form-group">
             <label for="password">Password</label>
             <input id="password" class="form-control" type="password">
-
           </div>
-          <button class="btn btn-info btn-lg" id="submit" type="submit">Login</button>
-          <button class="btn btn-info btn-lg" id="newUser" type="submit">New User</button>
-
-        </form>
+          <div class="btn btn-outline-dark btn-lg" id="submit" type="submit">Login</div>
+          <div class="btn btn-outline-dark btn-lg" id="newUser" type="submit">New User</div>
       </div>
+
+
+      </form>
     </div>
+  </div>
   </div>
 
 
@@ -88,21 +89,6 @@
         }
       });
     });
-
-    $('#newUser').click((event) => {
-      event.preventDefault();
-      const email = $('#email').val().trim();
-      const password = $('#password').val().trim();
-      firebase.auth().createUserWithEmailAndPassword(email, password).then((data, error) => {
-        console.log('you are good');
-      }).catch((error) => {
-        if (error) {
-          console.log('Here is our error', error);
-          $('body').prepend(`<div class='help-message'>Oh no there was an error try again...</div>`)
-        }
-      });
-    });
-
 
 
 
