@@ -56,7 +56,9 @@ module.exports = function(app) {
         db.Patient.update(req.body,
         {
             where: {
+
                 id: req.params.id
+
             }
         })
         .then(function(dbPatient) {
