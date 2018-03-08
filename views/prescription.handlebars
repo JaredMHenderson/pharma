@@ -3,6 +3,24 @@
     <h1 id="headline">New Prescription</h1>
   </div>
     <hr>
+
+  <div class="row">
+    <div class="col-lg-8">
+      
+    
+    <div class="form-group">
+      <label for="sel1">Select Patient:</label>
+      <select class="form-control" id="sel1">
+        {{#each patients}}
+        <option>{{name}}</option>
+        {{/each}}        
+      </select>
+    </div>
+    </div>
+  </div>
+  
+  
+    <hr>
   <div class="row">
     <div class="col-lg-8">
         <div class="form-group">

@@ -54,7 +54,7 @@ module.exports = function(app) {
         db.Patient.update(req.body,
         {
             where: {
-                id: req.body.ids
+                id: req.body.id
             }
         })
         .then(function(dbPatient) {

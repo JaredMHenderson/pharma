@@ -31,7 +31,10 @@ module.exports = function(app) {
   });
 
   app.get("/prescription", function(req, res) {
-    res.render("prescription");
+    db.Patient.findAll().then(function(data){
+      res.render("prescription", {patients: data});
+    })
+    
   });
 
   app.get("/updatePatient", function(req, res) {
