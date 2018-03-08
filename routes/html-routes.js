@@ -30,10 +30,6 @@ module.exports = function(app) {
     res.render("newPatientForm");
   });
 
-  app.get("/prescription", function(req, res) {
-    res.render("prescription");
-  });
-
   app.get("/updatePatient", function(req, res) {
     res.render("updatePatient");
   });
