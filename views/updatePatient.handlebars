@@ -7,6 +7,7 @@
     <div class="col-lg-7">
         <div class="form-group">
           <label for="patientName" id="subHead">Name:</label>
+<<<<<<< HEAD
           <input type="text" class="form-control" id="patientName" placeholder="Name" value="{{this.patient.name}}">
         </div>
         <div class="form-group">
@@ -36,3 +37,35 @@ $("#updatePatient").on("click", function(){
     
   });
 </script>
+=======
+          <input type="text" class="form-control" id="patientName" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <label for="patientAge" id="subHead">Date of Birth:</label>
+          <input type="text" class="form-control" id="patientDOB" placeholder="DD/MM/YYYY">
+        </div>
+        <div class="form-group">
+          <label for="patientComments" id="subHead">Additional Comments:</label>
+          <textarea class="form-control" aria-label="With textarea" id="patientComments"></textarea>
+        </div>
+    </div>
+  </div>
+
+    <button class="btn btn-info" onclick="location.href='/home'" id="newPatient">Submit Update</button>
+
+</div>
+
+<script>
+
+  function createPatient(){
+    var newPatient = {
+      name: $("#patientName").val().trim(),
+      DOB: (new Date()).getTime()
+      }
+      patients.createPatient(function(result){
+        alert(result);
+      }, newPatient);
+    };
+
+</script>
+>>>>>>> a131ee65b8942c55bdd2a699a79a6210ed8ffe67
