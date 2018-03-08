@@ -10,6 +10,7 @@ var patients = {
       callback(patientJson);
     });
   },
+
   createPatient: function(callback, newPatient) {
     fetch('/api/patients', {
   method: 'POST', // or 'PUT'
@@ -21,12 +22,24 @@ var patients = {
 .catch(error => console.error('Error:', error))
 .then(callback);
   },
+
   deletePatient: function(callback, patientId){
     fetch('/api/patients/' + patientId, {
       method: 'DELETE',
     }).then(res => res.json())
 .catch(error => console.error('Error:', error))
 .then(callback);
+  },
+
+  getOnePatient: function(callback, patientId) {
+    fetch('/api/patients' + patientId)
+      .then(function(response) {
+    return response.json();
+    })
+    .then(function(patientJson) {
+      console.log(patientJson);
+      callback(patientJson);
+    });
   },
 
    updatePatient: function(callback, patientId, updatedPatient) {
