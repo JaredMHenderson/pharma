@@ -41,7 +41,7 @@
       <td>{{this.DOB}}</td>
       <td>{{this.prescriptions}}</td>
       <td>{{this.comments}}</td>
-      <td><button class="update" data-toggle="modal" data-target="#update-modal" data={{this.id}}>Update</button></td>
+      <td><a href="/api/patients/{{this.id}}"><button class="update" data={{this.id}}>Update</button></a></td>
       <td><button class="delete" data={{this.id}}>Delete</button></td>
     </tr>
     {{/each}}
@@ -78,11 +78,16 @@
 
   });
 
-$(".update").on("click", function()
-{
-    let id = $(this).attr("data");
+// $(".update").on("click", function()
+// {
+//     const id = $(this).attr("data");
 
-});
+//     $.ajax({
+//       url: `/api/patients/${id}`,
+//       method: 'GET'
+//     });
+
+// });
 
 
 </script>
