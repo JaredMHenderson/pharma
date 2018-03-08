@@ -30,7 +30,8 @@
       			<td>{{this.DOB}}</td>
       			<td>{{this.prescription}}</td>
       			<td>{{this.comments}}</td>
-      			<td><button class="btn btn-warning btn-sm update" onclick="location.href='/updatePatient'" data={{this.id}}>Update</button></td>
+      			<td><a href="/api/patients/{{this.id}}"><button class="btn btn-warning btn-sm update" data={{this.id}}>Update</button></a></td>
+         
       			<td><button class="btn btn-danger btn-sm delete" data={{this.id}}>Delete</button></td>
     			</tr>
 						{{/each}}
