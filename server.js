@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 // const pharmacy = require('pharmacy.js');
 
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 const db = require("./models");
@@ -22,7 +22,7 @@ app.use(express.static("public"));
 app.use(express.static("public"));
 
 db.sequelize.sync({ force: false }).then(function() {
-  app.listen(port, function() {
-    console.log("App listening on port " + port);
+  app.listen(PORT, function() {
+    console.log("App listening on port " + PORT);
   });
 });
