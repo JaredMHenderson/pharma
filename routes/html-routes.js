@@ -13,17 +13,17 @@ module.exports = function(app) {
   });
 
   app.get("/", function(req, res) {
-
     res.render("index");
   });
 
-  app.get("/home", function(req, res) 
+
+  app.get("/home", function(req, res)
   {
-    db.Patient.findAll().then(function(data) 
+    db.Patient.findAll().then(function(data)
     {
       res.render("home", {patients: data});
     });
-   
+
   });
 
   app.get("/newPatientForm", function(req, res) {
@@ -32,6 +32,10 @@ module.exports = function(app) {
 
   app.get("/prescription", function(req, res) {
     res.render("prescription");
+  });
+
+  app.get("/updatePatient", function(req, res) {
+    res.render("updatePatient");
   });
 
 };

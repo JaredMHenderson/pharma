@@ -3,7 +3,7 @@
 const db = require('../models');
 
 module.exports = function(app) {
-    //Get route to get all users
+    //Get route to get all patients
 
     app.get('/api/patients', function(req, res) {
         db.Patient.findAll({})
@@ -12,7 +12,7 @@ module.exports = function(app) {
         });
     });
 
-    //Get Route for returning info about a specific User
+    //Get Route for returning info about a specific Patient
     app.get('/api/patients/name/:name', function(req, res) {
         db.Patient.findAll({
             where: {
@@ -30,18 +30,18 @@ module.exports = function(app) {
         db.Patient.create({
             name: req.body.name,
             DOB: req.body.DOB,
-            prescriptions: req.body.prescriptions
+            comments: req.body.comments
         })
         .then(function(dbPatient) {
             res.json(dbPatient);
         });   
     });
 
-    //Delete route for deleting users
-    app.delete('/api/patients/:name', function(req, res) {
+    //Delete route for deleting patients
+    app.delete('/api/patients/:id', function(req, res) {
         db.Patient.destroy({
             where:{
-                name: req.params.name
+                id: req.params.id
             }
         })
         .then(function(dbPatient) {
@@ -49,12 +49,12 @@ module.exports = function(app) {
         });
     });
 
-    //Put route for updating User info
+    //Put route for updating Patient info
     app.put('/api/patients', function(req, res) {
         db.Patient.update(req.body,
         {
             where: {
-                name: req.body.name
+                id: req.body.ids
             }
         })
         .then(function(dbPatient) {

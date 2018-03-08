@@ -20,9 +20,14 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true 
     },
 
-    age: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+    // age: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false
+    // },
+
+    comments: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
 
   });
