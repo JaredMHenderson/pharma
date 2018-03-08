@@ -13,14 +13,15 @@ module.exports = function(app) {
     });
 
     //Get Route for returning info about a specific Patient
-    app.get('/api/patients/name/:name', function(req, res) {
+    app.get('/api/patients/:id', function(req, res) {
+
         db.Patient.findAll({
             where: {
-                name: req.params.name
+                id: req.params.id
             }
         })
         .then(function(dbPatient) {
-            res.json(dbPatient);
+            res.render("updatePatient", {patient: dbPatient[0]});
         });
     });
 
@@ -30,11 +31,12 @@ module.exports = function(app) {
         db.Patient.create({
             name: req.body.name,
             DOB: req.body.DOB,
+            prescription: req.body.prescription,
             comments: req.body.comments
         })
         .then(function(dbPatient) {
             res.json(dbPatient);
-        });   
+        });
     });
 
     //Delete route for deleting patients
@@ -50,30 +52,18 @@ module.exports = function(app) {
     });
 
     //Put route for updating Patient info
-    app.put('/api/patients', function(req, res) {
+    app.put('/api/patients/:id', function(req, res) {
+        console.log("THIS IS OUR BODY", req.body);
         db.Patient.update(req.body,
         {
             where: {
-                id: req.body.id
+
+                id: req.params.id
+
             }
         })
         .then(function(dbPatient) {
             res.json(dbPatient);
         });
-    });
-
-
-    //Post route for adding new prescription
-
-    app.post('/api/prescriptions', function (req, res) {
-        console.log(req.body);
-        db.Prescription.create({
-            name: req.body.name,
-            category: req.body.category,
-            stock: req.body.stock
-        })
-            .then(function (dbPatient) {
-                res.json(dbPatient);
-            });
     });
 }
