@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,11 +27,93 @@
   <div class="patients">
     {{dbUser}}
   </div>
+=======
+<div class="container">
+	<div class="row">
+		<div class="col-lg-7">
+			<h1 id="headline">Welcome</h1>
+		</div>
+		<div class="col-lg-5">
+			<button class="btn btn-info" id="seconBtn" onclick="location.href='/newPatientForm'" role="button">Add New Patient</button>
+			<button class="btn btn-info" id="seconBtn" onclick="location.href='/prescription'" role="button">Add New Prescription</button>
+		</div>
+	</div>
+		<hr>
+	<div class="row">
+
+		<h3 class="subHead">Recent Patients</h3>
+    </div>
 
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
-</body>
-</html>
+<div class="row">
+
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">DOB</th>
+
+      <th scope="col">Prescription</th>
+      <th scope="col">Comments</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+
+      <th scope="col">Prescriptions</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+      {{#each patients}}
+    <tr>
+      <th scope="row">{{this.name}}</th>
+      <td>{{this.DOB}}</td>
+      <td>{{this.prescriptions}}</td>
+      <td>{{this.comments}}</td>
+      <td><button class="update" data-toggle="modal" data-target="#update-modal" data={{this.id}}>Update</button></td>
+      <td><button class="delete" data={{this.id}}>Delete</button></td>
+    </tr>
+    {{/each}}
+
+  </tbody>
+</table>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+
+  $(".delete").on("click", function()
+  {
+    let id = $(this).attr("data");
+
+    if (confirm("Are you sure you want to delete the patient?")) 
+    {
+    
+      patients.deletePatient(function(result)
+      {
+        alert("Patient deleted");
+      }, id);
+
+      location.reload();
+
+} else {
+    location.reload();
+}
+
+  });
+
+$(".update").on("click", function()
+{
+    let id = $(this).attr("data");
+>>>>>>> 2a56a39c1e9b63503b00b99d5001ddc34849b7cc
+
+});
+
+
+</script>

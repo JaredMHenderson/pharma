@@ -3,62 +3,77 @@
 const db = require('../models');
 
 module.exports = function(app) {
-    //Get route to get all users
+    //Get route to get all patients
 
-    app.get('api/users/', function(req, res) {
-        db.User.findAll({})
-        .then(function(dbUser) {
-            res.json(dbUser);
+    app.get('/api/patients', function(req, res) {
+        db.Patient.findAll({})
+        .then(function(dbPatient) {
+            res.json(dbPatient);
         });
     });
 
-    //Get Route for returning info about a specific User
-    app.get('/api/users/name/:name', function(req, res) {
-        db.User.findAll({
+    //Get Route for returning info about a specific Patient
+    app.get('/api/patients/name/:name', function(req, res) {
+        db.Patient.findAll({
             where: {
                 name: req.params.name
             }
         })
-        .then(function(dbUser) {
-            res.json(dbUser);
+        .then(function(dbPatient) {
+            res.json(dbPatient);
         });
     });
 
-    //Post Route For adding a new User
-    app.post('/api/users', function(req, res) {
+    //Post Route For adding a new Patient
+    app.post('/api/patients', function(req, res) {
         console.log(req.body);
-        db.User.create({
+        db.Patient.create({
             name: req.body.name,
             DOB: req.body.DOB,
-            prescriptions: req.body.prescriptions
+            comments: req.body.comments
         })
-        .then(function(dbUser) {
-            res.json(dbUser);
+        .then(function(dbPatient) {
+            res.json(dbPatient);
         });   
     });
 
-    //Delete route for deleting users
-    app.delete('/api/users/:name', function(req, res) {
-        db.User.destroy({
+    //Delete route for deleting patients
+    app.delete('/api/patients/:id', function(req, res) {
+        db.Patient.destroy({
             where:{
-                name: req.params.name
+                id: req.params.id
             }
         })
-        .then(function(dbUser) {
-            res.json(dbUser);
+        .then(function(dbPatient) {
+            res.json(dbPatient);
         });
     });
 
-    //Put route for updating User info
-    app.put('/api/users', function(req, res) {
-        db.User.update(req.body,
+    //Put route for updating Patient info
+    app.put('/api/patients', function(req, res) {
+        db.Patient.update(req.body,
         {
             where: {
-                name: req.body.name
+                id: req.body.ids
             }
         })
-        .then(function(dbUser) {
-            res.json(dbPost);
+        .then(function(dbPatient) {
+            res.json(dbPatient);
         });
+    });
+
+
+    //Post route for adding new prescription
+
+    app.post('/api/prescriptions', function (req, res) {
+        console.log(req.body);
+        db.Prescription.create({
+            name: req.body.name,
+            category: req.body.category,
+            stock: req.body.stock
+        })
+            .then(function (dbPatient) {
+                res.json(dbPatient);
+            });
     });
 }
