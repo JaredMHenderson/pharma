@@ -25,6 +25,7 @@
       <th scope="col">DOB</th>
       <th scope="col">Prescription</th>
       <th scope="col">Comments</th>
+      <th scope="col">Update</th>
       <th scope="col">Delete</th>
     </tr>
   </thead>
@@ -36,6 +37,7 @@
       <td>{{this.DOB}}</td>
       <td>{{this.prescriptions}}</td>
       <td>{{this.comments}}</td>
+      <td><button class="update" data-toggle="modal" data-target="#update-modal" data={{this.id}}>Update</button></td>
       <td><button class="delete" data={{this.id}}>Delete</button></td>
     </tr>
     {{/each}}
@@ -43,10 +45,14 @@
   </tbody>
 </table>
  
+
+
 </div>
 </div>
 
 <script>
+
+
   $(".delete").on("click", function()
   {
     let id = $(this).attr("data");
@@ -66,4 +72,12 @@
 }
 
   });
+
+$(".update").on("click", function()
+{
+    let id = $(this).attr("data");
+
+});
+
+
 </script>
