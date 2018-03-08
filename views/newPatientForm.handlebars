@@ -1,45 +1,47 @@
-
-
-
 <div class="container">
   <div class="row">
-    <h1 class="headline">New Patient</h1>
+    <h1 id="headline">New Patient</h1>
   </div>
   <div class="row">
-    <div class="col-lg-8">
-      
+    <div class="col-lg-7">
         <div class="form-group">
-          <label for="patientName" class="subHead">Name:</label>
+          <label for="patientName" id="subHead">Name:</label>
           <input type="text" class="form-control" id="patientName" placeholder="Name">
         </div>
         <div class="form-group">
-          <label for="patientAge" class="subHead">Date of Birth:</label>
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="MM">
-              <input type="text" class="form-control" placeholder="DD">
-              <input type="text" class="form-control" placeholder="YYYY">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="patientComments" class="subHead">Additional Comments:</label>
-              <div class="input-group">
-                <textarea class="form-control" aria-label="With textarea"></textarea>
-              </div>
-          </div>
-            <button class="btn btn-outline-dark btn-lg" onclick="createPatient()" href="home" role="button">Submit Patient</button>
-            <a class="btn btn-outline-dark btn-lg" href="prescription" role="button">Submit + Prescription</a>
-      
+          <label for="patientAge" id="subHead">Date of Birth:</label>
+          <input type="text" class="form-control" id="patientDOB" placeholder="DD/MM/YYYY">
+        </div>
+        <div class="form-group">
+          <label for="patientComments" id="subHead">Additional Comments:</label>
+          <textarea class="form-control" aria-label="With textarea" id="patientComments"></textarea>
+        </div>
     </div>
-    <script>
+  </div>
 
-      function createPatient(){
-        var newPatient = {
-          name: $("#patientName").val().trim(),
-          DOB: (new Date()).getTime()
-        }
-        patients.createPatient(function(result){
-          alert(result);
-        }, newPatient);
-      } 
-    </script>
+    <button class="btn btn-info" onclick="createPatient()" id="newPatient">Submit Patient</button>
+    <button class="btn btn-info" onclick="location.href='/prescription'" id="patientPrescript">Submit + Prescription</button>
 
+
+
+</div>
+
+<script>
+
+
+
+  function createPatient(){
+    var newPatient = {
+      name: $("#patientName").val().trim(),
+      DOB: $("#patientDOB").val(),
+      comments: $("#patientComments").val()
+      }
+      patients.createPatient(function(result){
+        alert("New patient added");
+      }, newPatient);
+      patients.getPatients(function(result) {
+        window.location.href = "/home";
+      })
+    };
+
+</script>

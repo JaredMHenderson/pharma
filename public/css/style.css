@@ -6,30 +6,26 @@
   text-align: center;
 }
 
-.headline {
+#headline {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   font-size: 75px;
-
   color: #546E7A;
-
 }
 
-.subHead {
+#subHead {
   font-family: 'Raleway', sans-serif;
   font-weight: 500;
   font-size: 25px;
   color: #37474F;
 }
 
-.body {
+#body {
   font-family: 'Raleway', sans-serif;
   font-weight: 500;
   color: #616161;
 }
 
-
 #seconBtn {
   margin-top: 45px;
 }
-
