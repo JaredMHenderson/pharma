@@ -23,7 +23,13 @@
     <tr>
       <th scope="col">Name</th>
       <th scope="col">DOB</th>
+
+      <th scope="col">Prescription</th>
+      <th scope="col">Comments</th>
+      <th scope="col">Delete</th>
+
       <th scope="col">Prescriptions</th>
+
     </tr>
   </thead>
 
@@ -33,6 +39,8 @@
       <th scope="row">{{this.name}}</th>
       <td>{{this.DOB}}</td>
       <td>{{this.prescriptions}}</td>
+      <td>{{this.comments}}</td>
+      <td><button class="delete" data={{this.id}}>Delete</button></td>
     </tr>
     {{/each}}
 
@@ -41,3 +49,27 @@
 
 </div>
 </div>
+
+</div>
+
+<script>
+  $(".delete").on("click", function()
+  {
+    let id = $(this).attr("data");
+
+    if (confirm("Are you sure you want to delete the patient?")) 
+    {
+    
+      patients.deletePatient(function(result)
+      {
+        alert("Patient deleted");
+      }, id);
+
+      location.reload();
+
+} else {
+    location.reload();
+}
+
+  });
+</script>
