@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h1 id="headline">New Patient</h1>
+    <h1 id="headline">Update Patient</h1>
   </div>
     <hr>
   <div class="row">
@@ -20,29 +20,20 @@
     </div>
   </div>
 
-    <button class="btn btn-info" onclick="createPatient()" id="newPatient">Submit Patient</button>
-    <button class="btn btn-info" onclick="location.href='/prescription'" id="patientPrescript">Submit + Prescription</button>
-
-
+    <button class="btn btn-info" onclick="location.href='/home'" id="newPatient">Submit Update</button>
 
 </div>
 
 <script>
 
-
-
   function createPatient(){
     var newPatient = {
       name: $("#patientName").val().trim(),
-      DOB: $("#patientDOB").val(),
-      comments: $("#patientComments").val()
+      DOB: (new Date()).getTime()
       }
       patients.createPatient(function(result){
-        alert("New patient added");
+        alert(result);
       }, newPatient);
-      patients.getPatients(function(result) {
-        window.location.href = "/home";
-      })
     };
 
 </script>
