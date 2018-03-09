@@ -3,8 +3,8 @@
 const db = require('../models');
 
 module.exports = function(app) {
-    //Get route to get all patients
 
+    //Get route to get all patients
     app.get('/api/patients', function(req, res) {
         db.Patient.findAll({})
         .then(function(dbPatient) {
@@ -14,7 +14,6 @@ module.exports = function(app) {
 
     //Get Route for returning info about a specific Patient
      app.get('/api/patients/:id', function(req, res) {
-
         db.Patient.findAll({
             where: {
                 id: req.params.id
@@ -57,9 +56,7 @@ module.exports = function(app) {
         db.Patient.update(req.body,
         {
             where: {
-
                 id: req.params.id
-
             }
         })
         .then(function(dbPatient) {
