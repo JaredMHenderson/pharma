@@ -29,3 +29,12 @@
 #seconBtn {
   margin-top: 45px;
 }
+
+.modal-backdrop {
+  background-color: #333333;
+  opacity: 0.8;
+}
+#updateModal {
+  background-color: #333333;
+  opacity: 0.8;
+}
