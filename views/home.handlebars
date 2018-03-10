@@ -1,88 +1,94 @@
 <div class="container">
 	<div class="row">
-		<div class="col-lg-7">
+		<div class="col-lg-10">
 			<h1 id="headline">Welcome</h1>
 		</div>
-		<div class="col-lg-5">
+		<div class="col-lg-2">
 			<button class="btn btn-info" id="seconBtn" onclick="location.href='/newPatientForm'" role="button">Add New Patient</button>
-			<button class="btn btn-info" id="seconBtn" onclick="location.href='/prescription'" role="button">Add New Prescription</button>
 		</div>
 	</div>
 		<hr>
 	<div class="row">
-
 		<h3 class="subHead">Recent Patients</h3>
-    </div>
+  </div>
+	<div class="row">
+  	<table class="table table-striped">
+  		<thead>
+    		<tr>
+      		<th scope="col">Name</th>
+      		<th scope="col">DOB</th>
+      		<th scope="col">Prescriptions</th>
+      		<th scope="col">Comments</th>
+      		<th scope="col">Update</th>
+      		<th scope="col">Delete</th>
+    		</tr>
+  		</thead>
+  		<tbody>
+      	{{#each patients}}
+    			<tr>
+      			<th scope="row">{{this.name}}</th>
+      			<td>{{this.DOB}}</td>
+      			<td>{{this.prescription}}</td>
+      			<td>{{this.comments}}</td>
+      			<td><a href="/api/patients/{{this.id}}"><button class="btn btn-warning btn-sm update" data={{this.id}}>Update</button></a></td>
 
-
-
-<div class="row">
-
-  <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">DOB</th>
-
-      <th scope="col">Prescription</th>
-      <th scope="col">Comments</th>
-      <th scope="col">Update</th>
-      <th scope="col">Delete</th>
-
-      <th scope="col">Prescriptions</th>
-
-    </tr>
-  </thead>
-
-  <tbody>
-      {{#each patients}}
-    <tr>
-      <th scope="row">{{this.name}}</th>
-      <td>{{this.DOB}}</td>
-      <td>{{this.prescriptions}}</td>
-      <td>{{this.comments}}</td>
-      <td><button class="update" data-toggle="modal" data-target="#update-modal" data={{this.id}}>Update</button></td>
-      <td><button class="delete" data={{this.id}}>Delete</button></td>
-    </tr>
-    {{/each}}
-
-  </tbody>
-</table>
-
-
+      			<td><button class="btn btn-danger btn-sm delete" data={{this.id}}>Delete</button></td>
+    			</tr>
+						{{/each}}
+  			</tbody>
+		</table>
+	</div>
 </div>
+
+
+<!-- Patient delete Modal -->
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Warning</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this patient?.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal" id="deleteBtn" type="submit">YES</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 </div>
 
 <script>
 
-
   $(".delete").on("click", function()
   {
     let id = $(this).attr("data");
-
-    if (confirm("Are you sure you want to delete the patient?")) 
+    if (confirm("Are you sure you want to delete the patient?"))
     {
-    
       patients.deletePatient(function(result)
       {
         alert("Patient deleted");
       }, id);
-
       location.reload();
+		} else {
+    	location.reload();
+		}
+	});
 
-} else {
-    location.reload();
-}
-
-  });
-
-$(".update").on("click", function()
-{
-    let id = $(this).attr("data");
-
-});
-
+	// $('.delete').on('click', function(){
+	// 	$('#deleteModal').modal('show');
+	// 	if ($('#deleteBtn').onclick()) {
+	// 		patients.deletePatient(function(result)
+  //     {
+  //       alert("Patient deleted");
+  //     }, id);
+  //     location.reload();
+	// 	}
+	// });
 
 </script>

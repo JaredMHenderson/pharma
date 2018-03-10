@@ -12,21 +12,14 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       set(val){
         this.setDataValue('DOB', val);
-        this.setDataValue('age', moment().diff(moment(val)));
       }
     },
-    prescriptions: {
+    prescription: {
       type: DataTypes.STRING,
-      allowNull: true 
+      allowNull: true
     },
-
-    // age: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false
-    // },
-
     comments: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     }
 

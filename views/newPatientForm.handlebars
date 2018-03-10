@@ -1,48 +1,127 @@
 <div class="container">
   <div class="row">
-    <h1 id="headline">New Patient</h1>
+    <div class="col-lg-11">
+      <h1 id="headline">New Patient</h1>
+    </div>
+    <div class="col-lg-1">
+      <button class="btn btn-info" id="seconBtn" onclick="location.href='/home'" role="button"><i class="fas fa-home"></i></button>
+    </div>
   </div>
     <hr>
   <div class="row">
     <div class="col-lg-7">
+
+        <!-- Patient Name -->
         <div class="form-group">
-          <label for="patientName" id="subHead">Name:</label>
-          <input type="text" class="form-control" id="patientName" placeholder="Name">
+          <label for="patientName" id="subHead">Name: (Required)</label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fas fa-user"></i></span>
+            <input id="patientName" placeholder="Name" class="form-control" type="text">
+          </div>
         </div>
+
+        <!-- Patient DOB -->
         <div class="form-group">
-          <label for="patientAge" id="subHead">Date of Birth:</label>
-          <input type="text" class="form-control" id="patientDOB" placeholder="DD/MM/YYYY">
+          <label for="patientAge" id="subHead">Date of Birth: (Required)</label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span>
+            <input id="patientDOB" placeholder="YYYY-MM-DD" class="form-control" type="text">
+          </div>
         </div>
+
+        <!-- Patient Rx -->
+        <div class="form-group">
+          <label for="patientComments" id="subHead">Prescriptions:</label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fas fa-pills"></i></i></span>
+            <input name="Prescriptions" id="patientRx" placeholder="Prescriptions" class="form-control" type="text">
+          </div>
+        </div>
+
+        <!-- Additional Comments -->
         <div class="form-group">
           <label for="patientComments" id="subHead">Additional Comments:</label>
-          <textarea class="form-control" aria-label="With textarea" id="patientComments"></textarea>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fas fa-comments"></i></i></span>
+          	<textarea class="form-control" name="comment" id="patientComments" placeholder="Comments"></textarea>
+          </div>
         </div>
+
     </div>
   </div>
 
-    <button class="btn btn-info" onclick="createPatient()" id="newPatient">Submit Patient</button>
-    <button class="btn btn-info" onclick="location.href='/prescription'" id="patientPrescript">Submit + Prescription</button>
-
-
-
+    <button class="btn btn-info" onclick="createPatient()" id="newPatient">Submit Patient <span class="fas fa-paper-plane"></span></button>
 </div>
+
+<!-- Validation Modal -->
+<div class="modal" tabindex="-1" role="dialog" id="validModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Error</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Please fill in a valid patient name and DOB.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">Okay</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Patient Added Modal -->
+<div class="modal" tabindex="-1" role="dialog" id="patientModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Success</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>New patient has been added.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal" onclick="window.location.href ='/home'">Okay</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <script>
 
 
 
   function createPatient(){
+
+  var patientName = $("#patientName").val().trim();
+  var patientDOB = $("#patientDOB").val();
+  var patientPrescription = $("#patientPrescriptions").val();
+  var comments = $("#patientComments").val();
+
+  if (patientName === "" || patientDOB === "") {
+    $('#validModal').modal('show');
+  }
+
+  else {
     var newPatient = {
       name: $("#patientName").val().trim(),
       DOB: $("#patientDOB").val(),
+      prescription: $("#patientRx").val(),
       comments: $("#patientComments").val()
       }
       patients.createPatient(function(result){
-        alert("New patient added");
+        $('#patientModal').modal('show');
       }, newPatient);
       patients.getPatients(function(result) {
-        window.location.href = "/home";
       })
     };
+  }
 
 </script>
