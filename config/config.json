@@ -1,5 +1,6 @@
 {
     "development": {
+
         "username": "root",
         "password": "tWister@710",
         "database": "pharmacy",
@@ -19,3 +20,21 @@
         "dialect": "mysql"
     }
 }
+
+      "username": "root",
+      "database": "pharmacy",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "test": {
+      "username": "root",
+      "password": "tWister@710",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "production": {
+      "use_env_variable": "JAWSDB_URL",
+      "dialect": "mysql"
+    }
+   }
+
