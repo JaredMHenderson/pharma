@@ -11,6 +11,7 @@
   <div class="row">
     <div class="col-lg-7">
 
+
       <div class="form-group">
         <label for="patientName" style="font-family: 'Raleway', sans-serif; font-weight: 500; font-size: 25px; color: #37474F;" id="subHead">Name:</label>
         <div class="input-group">
@@ -53,16 +54,29 @@
 
 $("#updatePatient").on("click", function(){
   const id = $("#updatePatient").attr("data");
+  var patientName = $("#patientName").val().trim();
+  var patientDOB = $("#patientDOB").val();
+  var patientPrescription = $("#patientPrescriptions").val();
+  var comments = $("#patientComments").val();
+
+  if (patientName === "" || patientDOB === "") {
+  alert("Please fill in required fields");
+  }
+
+  else {
   var patient = {
-    name: $("#patientName").val().trim(),
-    DOB: $("#patientDOB").val(),
-    prescription: $("#patientRx").val(),
-    comments: $("#patientComments").val()
+    name: patientName,
+    DOB: patientDOB,
+    prescription: patientPrescription,
+    comments: comments
     }
     patients.updatePatient(function(result){
       alert("Patient information updated");
       window.location.href = "/home";
     }, id, patient);
-  });
+    
+  }
+});
+  
 
 </script>
