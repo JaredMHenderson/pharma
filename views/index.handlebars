@@ -1,14 +1,101 @@
 <div class="jumbotron jumbotron-fluid text-center" id="landing">
-    <div class="container">
-			<div class="row">
-      	<h1 class="display-4"><i class="fas fa-user-md fa-2x" style="color: #546E7A"></i></h1>
-			</div>
-			<div class="row">
-      	<h1 id="headline">quickclinic</h1>
-      	<h3 id="subHead">pharmacist portal</h3>
-			</div>
-    </div>
+  <div class="container">
+    <h1 class="display-4">
+      <i class="fas fa-user-md fa-2x" style="color: #546E7A"></i>
+    </h1>
 
-      	<button type="button" class="btn btn-info" onclick="location.href='/home'">Login</button>
+    <h1 id="headline" style="color: #546E7A">quickclinic</h1>
 
+    <h3 id="subHead">pharmacist portal</h3>
+      <hr>
+      <div class="col-xs-8 col-xs-offset-2">
+
+      <form>
+        <div class="form-group">
+          <label for="email" id="body">Email</label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fas fa-user"></i></span>
+            <input id="email" placeholder="Email" class="form-control" type="email">
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="password" id="body">Password</label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span>
+            <input id="password" placeholder="password" class="form-control" type="password">
+          </div>
+        </div>
+          <div class="btn btn-info" id="submit" type="submit">Login</div>
+          <div class="btn btn-info" id="newUser" type="submit">New User</div>
+      </div>
+    </form>
+  </div>
 </div>
+
+<!-- Login Modal -->
+<div class="modal" tabindex="-1" role="dialog" id="newUserModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Error</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Your Email and/or Password is invalid. Please try again.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">Okay</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script>
+
+    var config = {
+      apiKey: "AIzaSyAimvZ4DDH8O9AcCUdmIUQHOWKG-8oUDs0",
+      authDomain: "pharmacy-60892.firebaseapp.com",
+      databaseURL: "https://pharmacy-60892.firebaseio.com",
+      projectId: "pharmacy-60892",
+      storageBucket: "pharmacy-60892.appspot.com",
+      messagingSenderId: "276089507868"
+    };
+    firebase.initializeApp(config);
+
+    $('#submit').click((event) => {
+      event.preventDefault();
+      const email = $('#email').val().trim();
+      const password = $('#password').val().trim();
+      firebase.auth().signInWithEmailAndPassword(email, password).then((data, error) => {
+        console.log('you are good');
+      }).catch((error) => {
+        if (error) {
+          console.log('Here is our error', error);
+          $('#newUserModal').modal('show');
+        }
+      }).then(function(value) {
+        patients.getPatients(function(result) {
+          window.location.href ='/home'
+        });
+      });
+    });
+
+    $('#newUser').click((event) => {
+      event.preventDefault();
+      const email = $('#email').val().trim();
+      const password = $('#password').val().trim();
+      firebase.auth().createUserWithEmailAndPassword(email, password).then((data, error) => {
+        console.log('you are good');
+      }).catch((error) => {
+        if (error) {
+          console.log('Here is our error', error);
+          $('#newUserModal').modal('show');
+        }
+      });
+    });
+
+  </script>
