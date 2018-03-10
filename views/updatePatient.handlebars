@@ -1,39 +1,82 @@
 <div class="container">
   <div class="row">
-    <h1 id="headline">Update Patient</h1>
+    <div class="col-lg-11">
+      <h1 style="font-family: 'Raleway', sans-serif; font-weight: 400; font-size: 75px; color: #546E7A;" id="headline">Update Patient</h1>
+    </div>
+    <div class="col-lg-1">
+      <button class="btn btn-info" style="margin-top: 45px;" id="seconBtn" onclick="location.href='/home'" role="button"><i class="fas fa-home"></i></button>
+    </div>
   </div>
     <hr>
   <div class="row">
     <div class="col-lg-7">
-        <div class="form-group">
-          <label for="patientName" id="subHead">Name:</label>
-          <input type="text" class="form-control" id="patientName" placeholder="Name" value="{{this.patient.name}}">
+
+
+      <div class="form-group">
+        <label for="patientName" style="font-family: 'Raleway', sans-serif; font-weight: 500; font-size: 25px; color: #37474F;" id="subHead">Name:</label>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fas fa-user"></i></span>
+          <input id="patientName" placeholder="Name" class="form-control" type="text" value="{{this.patient.name}}">
         </div>
-        <div class="form-group">
-          <label for="patientAge" id="subHead">Date of Birth:</label>
-          <input type="text" class="form-control" id="patientDOB" placeholder="DD/MM/YYYY" value="{{this.patient.DOB}}">
+      </div>
+
+      <div class="form-group">
+        <label for="patientAge" style="font-family: 'Raleway', sans-serif; font-weight: 500; font-size: 25px; color: #37474F;" id="subHead">Date of Birth:</label>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span>
+          <input id="patientDOB" placeholder="YYYY-MM-DD" class="form-control" type="text" value="{{this.patient.DOB}}">
         </div>
-        <div class="form-group">
-          <label for="patientComments" id="subHead">Additional Comments:</label>
-          <textarea class="form-control" aria-label="With textarea" id="patientComments" value="{{this.patient.comments}}"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="patientRx" style="font-family: 'Raleway', sans-serif; font-weight: 500; font-size: 25px; color: #37474F;" id="subHead">Prescriptions:</label>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fas fa-pills"></i></i></span>
+          <input id="patientRx" placeholder="Prescriptions" class="form-control" type="text" value="{{this.patient.prescription}}">
         </div>
+      </div>
+
+      <div class="form-group">
+        <label for="patientComments" style="font-family: 'Raleway', sans-serif; font-weight: 500; font-size: 25px; color: #37474F;" id="subHead">Additional Comments:</label>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fas fa-comments"></i></i></span>
+          <textarea class="form-control" name="comment" id="patientComments" placeholder="Comments">{{this.patient.comments}}</textarea>
+        </div>
+      </div>
+
     </div>
   </div>
-    <button class="btn btn-info" data={{this.patient.id}} id="updatePatient">Submit Update</button>
+
+    <button class="btn btn-info" data={{this.patient.id}} id="updatePatient">Submit Update <span class="fas fa-paper-plane"></span></button>
 </div>
+
 <script>
+
 $("#updatePatient").on("click", function(){
   const id = $("#updatePatient").attr("data");
+  var patientName = $("#patientName").val().trim();
+  var patientDOB = $("#patientDOB").val();
+  var patientPrescription = $("#patientPrescriptions").val();
+  var comments = $("#patientComments").val();
+
+  if (patientName === "" || patientDOB === "") {
+  alert("Please fill in required fields");
+  }
+
+  else {
   var patient = {
-    name: $("#patientName").val().trim(),
-    DOB: $("#patientDOB").val(),
-    comments: $("#patientComments").val()
+    name: patientName,
+    DOB: patientDOB,
+    prescription: patientPrescription,
+    comments: comments
     }
     patients.updatePatient(function(result){
       alert("Patient information updated");
       window.location.href = "/home";
     }, id, patient);
     
-  });
-</script>
+  }
+});
+  
 
+</script>

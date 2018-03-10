@@ -14,14 +14,12 @@ module.exports = function(sequelize, DataTypes) {
         this.setDataValue('DOB', val);
       }
     },
-    prescriptions: {
+    prescription: {
       type: DataTypes.STRING,
-      allowNull: true 
+      allowNull: true
     },
-
-
     comments: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     }
 
